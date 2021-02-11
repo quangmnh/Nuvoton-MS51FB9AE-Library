@@ -40,7 +40,7 @@ sfr P2          = 0xA0;
 sfr AUXR1       = 0xA2;
 sfr BODCON0     = 0xA3; //TA Protection
 sfr IAPTRG      = 0xA4; //TA Protection
-sfr IAPUEN      = 0xA5; //TA Protection
+sfr IAPUEN      = 0xA5;  //TA Protection
 sfr IAPAL       = 0xA6;
 sfr IAPAH       = 0xA7;
 
@@ -215,7 +215,7 @@ sbit PT0        = IP^1;
 sbit PX0        = IP^0;
 
 /*  P3  */  
-sbit P30    = P3^0;
+sbit P30        = P3^0;
 
 
 /*  IE  */
@@ -245,10 +245,13 @@ sbit RI         = SCON^0;
 /*  P1  */     
 sbit P17        = P1^7;
 sbit P16        = P1^6;
-sbit P15        = P1^5;
-sbit P14        = P1^4;
-sbit P13        = P1^3;
-sbit P12        = P1^2;
+sbit TXD_1 			= P1^6; 
+sbit P15  			= P1^5;
+sbit P14  			= P1^4;
+sbit SDA  			= P1^4;    
+sbit P13  			= P1^3;
+sbit SCL  			= P1^3;  
+sbit P12        = P1^2; 
 sbit P11        = P1^1;
 sbit P10        = P1^0;
 
@@ -263,6 +266,9 @@ sbit IE0        = TCON^1;
 sbit IT0        = TCON^0;
 
 /*  P0  */  
+
+sbit P07        = P0^7;
+sbit RXD        = P0^7;
 sbit P06        = P0^6;
 sbit TXD        = P0^6;
 sbit P05        = P0^5;
@@ -275,6 +281,9 @@ sbit P01        = P0^1;
 sbit MISO       = P0^1;
 sbit P00        = P0^0;
 sbit MOSI       = P0^0;
+
+
+
 
 
 //------------------- Define Port as Quasi mode  -------------------
