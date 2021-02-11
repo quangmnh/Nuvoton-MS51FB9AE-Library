@@ -9,7 +9,6 @@ void main()
 				delay_ms(1000);
 				P15 = 0;
 				delay_ms(1000);
-				
 		}
 }
 		

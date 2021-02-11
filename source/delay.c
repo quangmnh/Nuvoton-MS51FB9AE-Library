@@ -2,12 +2,12 @@
 
 void delay_1ms()
 {
-		uint8_t i,j;
+		unsigned char i,j;
 		for (i=0; i<0x09; i++)
 				for (j=0; j<0xff; j++){}	
 }
 
-void delay_ms(uint8_t t)
+void delay_ms(unsigned char t)
 {
 		while (t)
 		{

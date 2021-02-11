@@ -7,5 +7,5 @@
 /* GPIO Init */
 void GPIO_Init(void)
 {
-		P15_OPENDRAIN_MODE;
+		P15_PUSHPULL_MODE;
 }
