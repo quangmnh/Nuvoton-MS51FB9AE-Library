@@ -1,0 +1,35 @@
+C51 COMPILER V9.60.0.0   GPIO                                                              02/11/2021 23:06:03 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GPIO
+OBJECT MODULE PLACED IN .\Objects\gpio.obj
+COMPILER INVOKED BY: D:\ProgramFiles\Keilv5\C51\BIN\C51.EXE source\gpio.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBUG O
+                    -BJECTEXTEND PRINT(.\Listings\gpio.lst) TABS(2) OBJECT(.\Objects\gpio.obj)
+
+line level    source
+
+   1          /***********************************************************/
+   2          /* GPIO Settings                                           */
+   3          /* Initiate GPIO Ports                                     */
+   4          /***********************************************************/
+   5          #include "gpio.h"
+   6          
+   7          /* GPIO Init */
+   8          void GPIO_Init(void)
+   9          {
+  10   1          P15_OPENDRAIN_MODE;
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      7    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

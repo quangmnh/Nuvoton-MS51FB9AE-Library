@@ -233,7 +233,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <Size>0x10000</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -324,7 +324,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.\inc</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -381,6 +381,11 @@
               <FileType>2</FileType>
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -391,6 +396,21 @@
               <FileType>5</FileType>
               <FilePath>.\inc\gpio.h</FilePath>
             </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\main.h</FilePath>
+            </File>
+            <File>
+              <FileName>delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>macro.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\macro.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -400,6 +420,11 @@
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\source\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\source\delay.c</FilePath>
             </File>
           </Files>
         </Group>
