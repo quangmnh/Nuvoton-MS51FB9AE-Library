@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   GPIO                                                              02/12/2021 22:50:29 PAGE 1   
+C51 COMPILER V9.60.0.0   GPIO                                                              02/12/2021 23:17:23 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GPIO
@@ -17,7 +17,7 @@ line level    source
    7          /* GPIO Init */
    8          void GPIO_Init(void)
    9          {
-  10   1          P1M1&=0xDF;P1M2|=0x20;
+  10   1          P15_PUSHPULL_MODE;
   11   1      }
 
 

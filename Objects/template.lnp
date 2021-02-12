@@ -1,6 +1,7 @@
 ".\Objects\STARTUP.obj",
 ".\Objects\main.obj",
 ".\Objects\gpio.obj",
-".\Objects\delay.obj" 
+".\Objects\delay.obj",
+".\Objects\timer.obj" 
 TO ".\Objects\template" 
 PRINT(".\Listings\template.m51") RAMSIZE(256) 

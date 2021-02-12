@@ -11,13 +11,13 @@ void main()
 		{
 
 
-//				if (flag_timer >= 200)
-//				{
-//						flag_timer = 0;
-//						temp = 0;
-//				}
-//				else if (flag_timer >=100) temp = 1; 
-				P15 = 1;
+				if (flag_timer >= 10)
+				{
+						flag_timer = 0;
+						temp = 0;
+				}
+				else if (flag_timer >=5) temp = 1; 
+				P15 = temp;
 		}
 }
 

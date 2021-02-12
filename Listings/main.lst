@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              02/12/2021 22:57:43 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              02/12/2021 23:19:43 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -21,27 +21,25 @@ line level    source
   11   1          {
   12   2      
   13   2      
-  14   2      //        if (flag_timer >= 200)
-  15   2      //        {
-  16   2      //            flag_timer = 0;
-  17   2      //            temp = 0;
-  18   2      //        }
-  19   2      //        else if (flag_timer >=100) temp = 1; 
-  20   2              P15 = 1;
+  14   2              if (flag_timer >= 10)
+  15   2              {
+  16   3                  flag_timer = 0;
+  17   3                  temp = 0;
+  18   3              }
+  19   2              else if (flag_timer >=5) temp = 1; 
+  20   2              P15 = temp;
   21   2          }
   22   1      }
   23          
   24          void init_system(void)
   25          {
   26   1          GPIO_Init();
-*** WARNING C206 IN LINE 26 OF main.c: 'GPIO_Init': missing function-prototype
   27   1          Timer0_Init();
-*** WARNING C206 IN LINE 27 OF main.c: 'Timer0_Init': missing function-prototype
   28   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     16    ----
+   CODE SIZE        =     55    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -51,4 +49,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

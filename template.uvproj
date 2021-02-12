@@ -411,6 +411,11 @@
               <FileType>5</FileType>
               <FilePath>.\inc\macro.h</FilePath>
             </File>
+            <File>
+              <FileName>timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\timer.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -425,6 +430,11 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\source\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\source\timer.c</FilePath>
             </File>
           </Files>
         </Group>
