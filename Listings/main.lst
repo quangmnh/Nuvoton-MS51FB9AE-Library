@@ -1,35 +1,49 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              02/11/2021 23:31:08 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              02/12/2021 20:59:10 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
-COMPILER INVOKED BY: D:\ProgramFiles\Keilv5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBUG OBJECTEX
-                    -TEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+COMPILER INVOKED BY: D:\ProgramFiles\Keilv5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEFINE(FOSC_24
+                    -0000) DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
 
 line level    source
 
    1          #include "main.h"
    2          
-   3          void main()
-   4          {
-   5   1          GPIO_Init();
-   6   1          while (1) 
-   7   1          {
-   8   2              P15 = 1;
-   9   2              delay_ms(1000);
-  10   2              P15 = 0;
-  11   2              delay_ms(1000);
-  12   2          }
-  13   1      }
-  14              
+   3          void init_system(void);
+   4          
+   5          void main()
+   6          {
+   7   1          unsigned char count = 0;
+   8   1          unsigned char temp = 1;
+   9   1          init_system();
+  10   1          while (1) 
+  11   1          {
+  12   2              while (!TF0);
+  13   2              count++;
+  14   2              if (count >= 20)
+  15   2              {
+  16   3                  count = 0;
+  17   3                  temp = 0;
+  18   3              }
+  19   2              else if (count >=10) temp = 1; 
+  20   2              P15 = temp;
+  21   2          }
+  22   1      }
+  23          
+  24          void init_system(void)
+  25          {
+  26   1          GPIO_Init();
+  27   1          Timer0_Init();
+  28   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     19    ----
+   CODE SIZE        =     63    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
+   DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -322,7 +322,7 @@
             <InterruptVectorAddress>0</InterruptVectorAddress>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>FOSC_240000</Define>
               <Undefine></Undefine>
               <IncludePath>.\inc</IncludePath>
             </VariousControls>
@@ -409,7 +409,12 @@
             <File>
               <FileName>macro.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\macro.h</FilePath>
+              <FilePath>.\inc\macro.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\timer.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -425,6 +430,11 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\source\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\source\timer.c</FilePath>
             </File>
           </Files>
         </Group>
