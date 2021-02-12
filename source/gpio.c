@@ -7,5 +7,5 @@
 /* GPIO Init */
 void GPIO_Init(void)
 {
-		P15_PUSHPULL_MODE;
+		P1M1&=0xDF;P1M2|=0x20;
 }

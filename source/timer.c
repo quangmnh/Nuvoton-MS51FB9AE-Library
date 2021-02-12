@@ -1,14 +1,22 @@
 
 #include "timer.h"
+
+unsigned char flag_timer = 0;
+unsigned int timer_cnt = 0;
+unsigned int time_MUL = 1;
 void Timer0_Init(void)
 {
 		ET0 = 1;
-		PT0 = 1;
-		clr_CKCON_T0M;                               
-    TMOD |= 0x10;                                
-    set_TCON_TR0;
 		
-		TL0 = TIMER_DIV12_VALUE_40ms &0xff;     
-    TH0 = TIMER_DIV12_VALUE_40ms >>8;
+		EA = 1;                               
+    TMOD |= (1<<0);		
+    TR0 = 1;
+		
 		 
+}
+
+void Timer0_ISR(void) interrupt 1        // Vector @  0x0B
+{
+		flag_timer++;
+
 }

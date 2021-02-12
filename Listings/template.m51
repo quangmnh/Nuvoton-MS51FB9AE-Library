@@ -1,9 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/12/2021  20:59:18  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/12/2021  22:57:44  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
 D:\PROGRAMFILES\KEILV5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\gpio.obj, .\Objects\delay.o
->> bj, .\Objects\timer.obj TO .\Objects\template PRINT (.\Listings\template.m51) RAMSIZE (256)
+>> bj TO .\Objects\template PRINT (.\Listings\template.m51) RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -14,7 +14,6 @@ INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
   .\Objects\gpio.obj (GPIO)
   .\Objects\delay.obj (DELAY)
-  .\Objects\timer.obj (TIMER)
 
 
 LINK MAP OF MODULE:  .\Objects\template (?C_STARTUP)
@@ -25,18 +24,17 @@ LINK MAP OF MODULE:  .\Objects\template (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0002H     UNIT         _DATA_GROUP_
-            IDATA   000AH     0001H     UNIT         ?STACK
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0039H     UNIT         ?PR?MAIN?MAIN
-            CODE    003CH     001FH     UNIT         ?PR?DELAY_1MS?DELAY
-            CODE    005BH     0013H     UNIT         ?PR?TIMER0_INIT?TIMER
-            CODE    006EH     000CH     UNIT         ?C_C51STARTUP
-            CODE    007AH     000CH     UNIT         ?PR?_DELAY_MS?DELAY
-            CODE    0086H     0007H     UNIT         ?PR?GPIO_INIT?GPIO
-            CODE    008DH     0006H     UNIT         ?PR?INIT_SYSTEM?MAIN
+            CODE    0003H     001FH     UNIT         ?PR?DELAY_1MS?DELAY
+            CODE    0022H     000CH     UNIT         ?C_C51STARTUP
+            CODE    002EH     000CH     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    003AH     000AH     UNIT         ?PR?MAIN?MAIN
+            CODE    0044H     0007H     UNIT         ?PR?GPIO_INIT?GPIO
+            CODE    004BH     0006H     UNIT         ?PR?INIT_SYSTEM?MAIN
 
 
 
@@ -49,26 +47,30 @@ SEGMENT                          DATA_GROUP
 ?C_C51STARTUP                  -----    -----
   +--> ?PR?MAIN?MAIN
 
-?PR?MAIN?MAIN                  0008H    0002H
+?PR?MAIN?MAIN                  0008H    0001H
   +--> ?PR?INIT_SYSTEM?MAIN
 
 ?PR?INIT_SYSTEM?MAIN           -----    -----
   +--> ?PR?GPIO_INIT?GPIO
-  +--> ?PR?TIMER0_INIT?TIMER
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   TIMER0_INIT
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  22:57:44  PAGE 2
 
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  20:59:18  PAGE 2
-
-
 
   VALUE           TYPE          NAME
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:006EH         SEGMENT       ?C_C51STARTUP
-  I:000AH         SEGMENT       ?STACK
+  C:0022H         SEGMENT       ?C_C51STARTUP
+  I:0009H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -77,7 +79,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0071H         SYMBOL        IDATALOOP
+  C:0025H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -86,18 +88,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:006EH         SYMBOL        STARTUP1
+  C:0022H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:006EH         LINE#         133
-  C:0070H         LINE#         134
-  C:0071H         LINE#         135
-  C:0072H         LINE#         136
-  C:0074H         LINE#         185
-  C:0077H         LINE#         196
+  C:0022H         LINE#         133
+  C:0024H         LINE#         134
+  C:0025H         LINE#         135
+  C:0026H         LINE#         136
+  C:0028H         LINE#         185
+  C:002BH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        MAIN
@@ -109,48 +111,37 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00D8H         PUBLIC        PWMCON0
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0003H         PUBLIC        main
+  C:003AH         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   B:0090H.5       PUBLIC        P15
-  C:008DH         PUBLIC        init_system
+  C:004BH         PUBLIC        init_system
   D:00F8H         PUBLIC        SCON_1
-  B:0088H.5       PUBLIC        TF0
   D:00E8H         PUBLIC        ADCCON0
   D:00C0H         PUBLIC        I2CON
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  22:57:44  PAGE 3
+
+
   D:00C8H         PUBLIC        T2CON
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  20:59:18  PAGE 3
-
-
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
   -------         DO            
-  D:0008H         SYMBOL        count
-  D:0009H         SYMBOL        temp
+  D:0008H         SYMBOL        temp
   -------         ENDDO         
-  C:0003H         LINE#         5
-  C:0003H         LINE#         6
-  C:0003H         LINE#         7
-  C:0006H         LINE#         8
-  C:0009H         LINE#         9
-  C:000CH         LINE#         10
-  C:000CH         LINE#         11
-  C:000CH         LINE#         12
-  C:000FH         LINE#         13
-  C:0011H         LINE#         14
-  C:001FH         LINE#         15
-  C:001FH         LINE#         16
-  C:0022H         LINE#         17
-  C:0024H         LINE#         18
-  C:0026H         LINE#         19
-  C:0034H         LINE#         20
-  C:003AH         LINE#         21
+  C:003AH         LINE#         5
+  C:003AH         LINE#         6
+  C:003AH         LINE#         7
+  C:003DH         LINE#         8
+  C:0040H         LINE#         10
+  C:0040H         LINE#         11
+  C:0040H         LINE#         20
+  C:0042H         LINE#         21
   -------         ENDPROC       MAIN
   -------         PROC          INIT_SYSTEM
-  C:008DH         LINE#         24
-  C:008DH         LINE#         25
-  C:008DH         LINE#         26
-  C:0090H         LINE#         27
+  C:004BH         LINE#         24
+  C:004BH         LINE#         25
+  C:004BH         LINE#         26
+  C:004EH         LINE#         27
   -------         ENDPROC       INIT_SYSTEM
   -------         ENDMOD        MAIN
 
@@ -165,7 +156,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00D8H         PUBLIC        PWMCON0
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0086H         PUBLIC        GPIO_Init
+  C:0044H         PUBLIC        GPIO_Init
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   D:00F8H         PUBLIC        SCON_1
@@ -174,87 +165,55 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          GPIO_INIT
-  C:0086H         LINE#         8
-  C:0086H         LINE#         9
-  C:0086H         LINE#         10
-  C:008CH         LINE#         11
+  C:0044H         LINE#         8
+  C:0044H         LINE#         9
+  C:0044H         LINE#         10
+  C:004AH         LINE#         11
   -------         ENDPROC       GPIO_INIT
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  20:59:18  PAGE 4
-
-
   -------         ENDMOD        GPIO
 
   -------         MODULE        DELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:003CH         PUBLIC        delay_1ms
-  C:007AH         PUBLIC        _delay_ms
+  C:0003H         PUBLIC        delay_1ms
+  C:002EH         PUBLIC        _delay_ms
   -------         PROC          DELAY_1MS
   -------         DO            
   D:0007H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  22:57:44  PAGE 4
+
+
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:003CH         LINE#         3
-  C:003CH         LINE#         4
-  C:003CH         LINE#         6
-  C:0048H         LINE#         7
-  C:005AH         LINE#         8
+  C:0003H         LINE#         3
+  C:0003H         LINE#         4
+  C:0003H         LINE#         6
+  C:000FH         LINE#         7
+  C:0021H         LINE#         8
   -------         ENDPROC       DELAY_1MS
   -------         PROC          _DELAY_MS
   D:0005H         SYMBOL        t
-  C:007AH         LINE#         10
-  C:007CH         LINE#         11
-  C:007CH         LINE#         12
-  C:007FH         LINE#         13
-  C:007FH         LINE#         14
-  C:0082H         LINE#         15
-  C:0083H         LINE#         16
-  C:0085H         LINE#         17
+  C:002EH         LINE#         10
+  C:0030H         LINE#         11
+  C:0030H         LINE#         12
+  C:0033H         LINE#         13
+  C:0033H         LINE#         14
+  C:0036H         LINE#         15
+  C:0037H         LINE#         16
+  C:0039H         LINE#         17
   -------         ENDPROC       _DELAY_MS
   -------         ENDMOD        DELAY
-
-  -------         MODULE        TIMER
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:0080H         PUBLIC        P0
-  D:0090H         PUBLIC        P1
-  D:00A0H         PUBLIC        P2
-  D:00B0H         PUBLIC        P3
-  D:00D8H         PUBLIC        PWMCON0
-  D:00A8H         PUBLIC        IE
-  D:00B8H         PUBLIC        IP
-  C:005BH         PUBLIC        Timer0_Init
-  D:0098H         PUBLIC        SCON
-  D:0089H         PUBLIC        TMOD
-  D:0088H         PUBLIC        TCON
-  D:00F8H         PUBLIC        SCON_1
-  B:00A8H.1       PUBLIC        ET0
-  D:008CH         PUBLIC        TH0
-  D:008AH         PUBLIC        TL0
-  B:00B8H.1       PUBLIC        PT0
-  B:0088H.4       PUBLIC        TR0
-  D:00E8H         PUBLIC        ADCCON0
-  D:00C0H         PUBLIC        I2CON
-  D:00C8H         PUBLIC        T2CON
-  D:008EH         PUBLIC        CKCON
-  D:00D0H         PUBLIC        PSW
-  -------         PROC          TIMER0_INIT
-  C:005BH         LINE#         3
-  C:005BH         LINE#         4
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/12/2021  20:59:18  PAGE 5
-
-
-  C:005BH         LINE#         5
-  C:005DH         LINE#         6
-  C:005FH         LINE#         7
-  C:0062H         LINE#         8
-  C:0065H         LINE#         9
-  C:0067H         LINE#         11
-  C:006AH         LINE#         12
-  C:006DH         LINE#         14
-  -------         ENDPROC       TIMER0_INIT
-  -------         ENDMOD        TIMER
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY_MS?DELAY
 
-Program Size: data=11.0 xdata=0 code=147
-LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 004FH
+
+Program Size: data=10.0 xdata=0 code=81
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
