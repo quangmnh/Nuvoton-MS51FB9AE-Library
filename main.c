@@ -4,20 +4,15 @@ void init_system(void);
 
 void main()
 {
-		unsigned char temp = 1;
+		unsigned char temp = 0;
 		init_system();
 		
-		while (1) 
+		while (1)
 		{
-
-
-				if (flag_timer >= 10)
-				{
-						flag_timer = 0;
-						temp = 0;
-				}
-				else if (flag_timer >=5) temp = 1; 
-				P15 = temp;
+//				if (flag_timer%20>=10)
+//				P15=1;
+//				else  P15 = 0;
+				//P15 = 1;
 		}
 }
 

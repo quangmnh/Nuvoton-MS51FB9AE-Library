@@ -1,1 +1,0 @@
-"source\gpio.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(.\inc) DEFINE (FOSC_240000) DEBUG OBJECTEXTEND PRINT(.\Listings\gpio.lst) TABS (2) OBJECT(.\Objects\gpio.obj)
