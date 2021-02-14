@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/13/2021  22:41:28  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/14/2021  20:29:18  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -32,16 +32,17 @@ LINK MAP OF MODULE:  .\Objects\template (?C_STARTUP)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    0003H     0007H     UNIT         ?PR?GPIO_INIT?GPIO
+                    000AH     0001H                  *** GAP ***
             CODE    000BH     0003H     ABSOLUTE     
             CODE    000EH     008CH     UNIT         ?C_C51STARTUP
-            CODE    009AH     002EH     UNIT         ?PR?TIMER0_ISR?TIMER
-            CODE    00C8H     001FH     UNIT         ?PR?DELAY_1MS?DELAY
-            CODE    00E7H     0010H     UNIT         ?PR?TIMER0_INIT?TIMER
-            CODE    00F7H     000CH     UNIT         ?PR?_DELAY_MS?DELAY
-            CODE    0103H     0007H     UNIT         ?PR?GPIO_INIT?GPIO
-            CODE    010AH     0006H     UNIT         ?PR?INIT_SYSTEM?MAIN
-            CODE    0110H     0004H     UNIT         ?C_INITSEG
+            CODE    009AH     001FH     UNIT         ?PR?DELAY_1MS?DELAY
+            CODE    00B9H     0010H     UNIT         ?PR?TIMER0_INIT?TIMER
+            CODE    00C9H     0010H     UNIT         ?PR?TIMER0_ISR?TIMER
+            CODE    00D9H     000CH     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    00E5H     000AH     UNIT         ?PR?MAIN?MAIN
+            CODE    00EFH     0006H     UNIT         ?PR?INIT_SYSTEM?MAIN
+            CODE    00F5H     0004H     UNIT         ?C_INITSEG
 
 
 
@@ -58,10 +59,10 @@ SEGMENT                          DATA_GROUP
 ?PR?MAIN?MAIN                  0009H    0001H
   +--> ?PR?INIT_SYSTEM?MAIN
 
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/14/2021  20:29:18  PAGE 2
+
+
 ?PR?INIT_SYSTEM?MAIN           -----    -----
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/13/2021  22:41:28  PAGE 2
-
-
   +--> ?PR?GPIO_INIT?GPIO
   +--> ?PR?TIMER0_INIT?TIMER
 
@@ -115,13 +116,14 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00D8H         PUBLIC        PWMCON0
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0003H         PUBLIC        main
+  C:00E5H         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  C:010AH         PUBLIC        init_system
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/13/2021  22:41:28  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/14/2021  20:29:18  PAGE 3
 
 
+  B:0090H.5       PUBLIC        P15
+  C:00EFH         PUBLIC        init_system
   D:00F8H         PUBLIC        SCON_1
   D:00E8H         PUBLIC        ADCCON0
   D:00C0H         PUBLIC        I2CON
@@ -131,19 +133,20 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   -------         DO            
   D:0009H         SYMBOL        temp
   -------         ENDDO         
-  C:0003H         LINE#         5
-  C:0003H         LINE#         6
-  C:0003H         LINE#         7
-  C:0006H         LINE#         8
-  C:0009H         LINE#         10
-  C:0009H         LINE#         11
-  C:0009H         LINE#         16
+  C:00E5H         LINE#         5
+  C:00E5H         LINE#         6
+  C:00E5H         LINE#         7
+  C:00E8H         LINE#         8
+  C:00EBH         LINE#         9
+  C:00EBH         LINE#         10
+  C:00EBH         LINE#         14
+  C:00EDH         LINE#         22
   -------         ENDPROC       MAIN
   -------         PROC          INIT_SYSTEM
-  C:010AH         LINE#         19
-  C:010AH         LINE#         20
-  C:010AH         LINE#         21
-  C:010DH         LINE#         22
+  C:00EFH         LINE#         25
+  C:00EFH         LINE#         26
+  C:00EFH         LINE#         27
+  C:00F2H         LINE#         28
   -------         ENDPROC       INIT_SYSTEM
   -------         ENDMOD        MAIN
 
@@ -158,7 +161,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00D8H         PUBLIC        PWMCON0
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
-  C:0103H         PUBLIC        GPIO_Init
+  C:0003H         PUBLIC        GPIO_Init
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   D:00F8H         PUBLIC        SCON_1
@@ -167,41 +170,41 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          GPIO_INIT
-  C:0103H         LINE#         8
-  C:0103H         LINE#         9
-  C:0103H         LINE#         10
-  C:0109H         LINE#         11
+  C:0003H         LINE#         8
+  C:0003H         LINE#         9
+  C:0003H         LINE#         10
+  C:0009H         LINE#         11
   -------         ENDPROC       GPIO_INIT
   -------         ENDMOD        GPIO
 
   -------         MODULE        DELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:00C8H         PUBLIC        delay_1ms
-  C:00F7H         PUBLIC        _delay_ms
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/14/2021  20:29:18  PAGE 4
+
+
+  C:009AH         PUBLIC        delay_1ms
+  C:00D9H         PUBLIC        _delay_ms
   -------         PROC          DELAY_1MS
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/13/2021  22:41:28  PAGE 4
-
-
   -------         DO            
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:00C8H         LINE#         3
-  C:00C8H         LINE#         4
-  C:00C8H         LINE#         6
-  C:00D4H         LINE#         7
-  C:00E6H         LINE#         8
+  C:009AH         LINE#         3
+  C:009AH         LINE#         4
+  C:009AH         LINE#         6
+  C:00A6H         LINE#         7
+  C:00B8H         LINE#         8
   -------         ENDPROC       DELAY_1MS
   -------         PROC          _DELAY_MS
   D:0005H         SYMBOL        t
-  C:00F7H         LINE#         10
-  C:00F9H         LINE#         11
-  C:00F9H         LINE#         12
-  C:00FCH         LINE#         13
-  C:00FCH         LINE#         14
-  C:00FFH         LINE#         15
-  C:0100H         LINE#         16
-  C:0102H         LINE#         17
+  C:00D9H         LINE#         10
+  C:00DBH         LINE#         11
+  C:00DBH         LINE#         12
+  C:00DEH         LINE#         13
+  C:00DEH         LINE#         14
+  C:00E1H         LINE#         15
+  C:00E2H         LINE#         16
+  C:00E4H         LINE#         17
   -------         ENDPROC       _DELAY_MS
   -------         ENDMOD        DELAY
 
@@ -211,17 +214,17 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  C:009AH         PUBLIC        Timer0_ISR
+  C:00C9H         PUBLIC        Timer0_ISR
   B:00A8H.7       PUBLIC        EA
   D:00D8H         PUBLIC        PWMCON0
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   D:0008H         PUBLIC        flag_timer
-  C:00E7H         PUBLIC        Timer0_Init
+  C:00B9H         PUBLIC        Timer0_Init
   D:0098H         PUBLIC        SCON
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
-  B:0090H.5       PUBLIC        P15
+  D:0091H         PUBLIC        SFRS
   D:00F8H         PUBLIC        SCON_1
   B:00A8H.1       PUBLIC        ET0
   B:0088H.5       PUBLIC        TF0
@@ -233,34 +236,33 @@ SYMBOL TABLE OF MODULE:  .\Objects\template (?C_STARTUP)
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          TIMER0_INIT
-  C:00E7H         LINE#         5
-  C:00E7H         LINE#         6
-  C:00E7H         LINE#         7
-  C:00E9H         LINE#         8
-  C:00EBH         LINE#         9
-  C:00EEH         LINE#         10
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/13/2021  22:41:28  PAGE 5
+  C:00B9H         LINE#         7
+  C:00B9H         LINE#         8
+  C:00B9H         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/14/2021  20:29:18  PAGE 5
 
 
-  C:00F1H         LINE#         11
-  C:00F4H         LINE#         12
-  C:00F6H         LINE#         14
+  C:00BBH         LINE#         10
+  C:00BDH         LINE#         11
+  C:00C0H         LINE#         12
+  C:00C3H         LINE#         13
+  C:00C6H         LINE#         14
+  C:00C8H         LINE#         16
   -------         ENDPROC       TIMER0_INIT
   -------         PROC          TIMER0_ISR
-  C:009AH         LINE#         16
-  C:00A0H         LINE#         18
-  C:00A2H         LINE#         19
-  C:00B3H         LINE#         20
-  C:00B7H         LINE#         21
-  C:00B9H         LINE#         22
-  C:00BCH         LINE#         23
-  C:00BFH         LINE#         24
-  C:00C1H         LINE#         25
+  C:00C9H         LINE#         18
+  C:00C9H         LINE#         20
+  C:00CBH         LINE#         24
+  C:00CEH         LINE#         25
+  C:00D1H         LINE#         26
+  C:00D3H         LINE#         27
+  C:00D6H         LINE#         28
+  C:00D8H         LINE#         29
   -------         ENDPROC       TIMER0_ISR
   -------         ENDMOD        TIMER
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY_MS?DELAY
 
-Program Size: data=11.0 xdata=0 code=276
+Program Size: data=11.0 xdata=0 code=248
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
